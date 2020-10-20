@@ -2,7 +2,11 @@ import axios from 'axios';
 
 class TodoDataService {
     retrieveAllTodos(username) {
-        return axios.get(`http://localhost:8080/users/${username}/todos`)
+        return axios.get(`http://localhost:8080/users/${username}/todos`);
+    }
+
+    deleteTodoById(username, id) {
+        return axios.delete(`http://localhost:8080/users/${username}/todos/${id}`);
     }
 }
 
