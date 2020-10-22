@@ -1,6 +1,9 @@
+import axios from "axios";
+
 class AuthenticationService {
     registerSuccesfullLogin(username, password) {
         sessionStorage.setItem('authenticatedUser', username);
+        this.setupAxiosInterceptors();
     }
 
     logout() {
@@ -17,6 +20,21 @@ class AuthenticationService {
         if (user === null) {
             return ''
         } else return user;
+    }
+
+    setupAxiosInterceptors() {
+        let username = 'm.krzyszczyk';
+        let password = 'dummy';
+        //window.btoa() - kodowanie base64 w js
+        let basicAuthHeader = 'Basic ' +  window.btoa(username + ":" + password)
+        axios.interceptors.request.use(
+            (config) => {
+                if (this.isUserLoggedIn()) {
+                    config.headers.authorization = basicAuthHeader;
+                }
+                return config;
+            }
+        )
     }
 
 }
