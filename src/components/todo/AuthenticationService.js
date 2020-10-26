@@ -1,9 +1,37 @@
 import axios from "axios";
 
 class AuthenticationService {
+
+    executeBasicAuthenticationService(username, password) {
+        return axios.get(`http://localhost:8080/basicauth`, {
+            headers: {authorization: this.createBasicAuthToken(username, password)}
+        });
+    }
+
+    executeJwtAuthenticationService(username, password) {
+        return axios.post(`http://localhost:8080/authenticate`, {
+                 username, password
+            }
+        );
+    }
+
     registerSuccesfullLogin(username, password) {
         sessionStorage.setItem('authenticatedUser', username);
-        this.setupAxiosInterceptors();
+        this.setupAxiosInterceptors(this.createBasicAuthToken(username, password));
+    }
+
+    registerSuccessfulLoginForJwt(username, token) {
+        sessionStorage.setItem('authenticatedUser', username);
+        this.setupAxiosInterceptors(this.createJwtAuthToken(token));
+    }
+
+    createBasicAuthToken(username, password) {
+        //window.btoa() - kodowanie base64 w js
+        return 'Basic ' + window.btoa(username + ":" + password);
+    }
+
+    createJwtAuthToken(token) {
+        return 'Bearer ' + token;
     }
 
     logout() {
@@ -22,11 +50,8 @@ class AuthenticationService {
         } else return user;
     }
 
-    setupAxiosInterceptors() {
-        let username = 'm.krzyszczyk';
-        let password = 'dummy';
-        //window.btoa() - kodowanie base64 w js
-        let basicAuthHeader = 'Basic ' +  window.btoa(username + ":" + password)
+    setupAxiosInterceptors(basicAuthHeader) {
+
         axios.interceptors.request.use(
             (config) => {
                 if (this.isUserLoggedIn()) {
