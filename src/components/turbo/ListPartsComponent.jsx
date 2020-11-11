@@ -36,7 +36,7 @@ class ListPartsComponent extends Component {
     }
 
     addPartClicked() {
-        this.props.history.push('/part/-1')
+        this.props.history.push('/parts/-1')
     }
 
     render() {
@@ -86,7 +86,7 @@ class ListPartsComponent extends Component {
     }
 
     updatePartClicked(id) {
-        this.props.history.push(`/part/${id}`);
+        this.props.history.push(`/parts/${id}`);
     }
 
 }

@@ -15,7 +15,7 @@ class HeaderComponent extends Component {
                         <li><Link className="nav-link" to="/about">O APLIKACJI</Link></li>
                         {isUserLoggedIn && <li><Link className="nav-link" to="/turbos">TURBOSPRĘŻARKI</Link></li>}
                         {isUserLoggedIn && <li><Link className="nav-link" to="/parts">CZĘŚCI</Link></li>}
-                        {isUserLoggedIn && <li><Link className="nav-link" to="/reasons">POWODU USTEREK</Link></li>}
+                        {isUserLoggedIn && <li><Link className="nav-link" to="/reasons">POWODY USTEREK</Link></li>}
                         {isUserLoggedIn && <li><Link className="nav-link" to="/orders">ZAMÓWIENIA</Link></li>}
                         <li><Link className="nav-link" to="/contact">KONTAKT</Link></li>
                         {!isUserLoggedIn && <li><Link className="nav-link" to="/login">ZALOGUJ</Link></li>}

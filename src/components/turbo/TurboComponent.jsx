@@ -83,7 +83,7 @@ class TurboComponent extends Component {
                             (props) => (
                                 <Form>
                                     <fieldset className="form-group">
-                                        <label>Number</label>
+                                        <label>Numer</label>
                                         <Field className="form-control" type="text"
                                             name="number"></Field>
                                     </fieldset>
