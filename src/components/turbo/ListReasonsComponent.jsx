@@ -36,7 +36,7 @@ class ListReasonsComponent extends Component {
     }
 
     addReasonClicked() {
-        this.props.history.push('/reason/-1')
+        this.props.history.push('/reasons/-1')
     }
 
     render() {
@@ -86,7 +86,7 @@ class ListReasonsComponent extends Component {
     }
 
     updateReasonClicked(id) {
-        this.props.history.push(`/reason/${id}`);
+        this.props.history.push(`/reasons/${id}`);
     }
 
 }
