@@ -18,17 +18,17 @@ class TurboComponent extends Component {
 
     componentDidMount() {
 
-        if (this.state.id === -1) {
+        if (this.state.id == -1) {
             return;
         }
 
-        TurboDataService.retrieveTurbo(this.state.id).then(
-            response => this.setState({
-                number: response.data.number,
-                model: response.data.model,
-                producer: response.data.producer
-            })
-        );
+            TurboDataService.retrieveTurbo(this.state.id).then(
+                response => this.setState({
+                    number: response.data.number,
+                    model: response.data.model,
+                    producer: response.data.producer
+                })
+            );
     }
 
     onSubmit(values) {

@@ -14,7 +14,7 @@ class TurboDataService {
         return axios.delete(`${API_URL}/turbos/${id}`);
     }
 
-    updateTurbo(username, id, turbo) {
+    updateTurbo(id, turbo) {
         return axios.put(`${API_URL}/turbos/${id}`, turbo);
     }
 
