@@ -13,6 +13,7 @@ class HeaderComponent extends Component {
 
                     <ul className="navbar-nav navbar-collapse justify-content-end">
                         <li><Link className="nav-link" to="/about">O APLIKACJI</Link></li>
+                        {isUserLoggedIn && <li><Link className="nav-link" to="/newOrder">NOWE ZAMÓWIENIE</Link></li>}
                         {isUserLoggedIn && <li><Link className="nav-link" to="/turbos">TURBOSPRĘŻARKI</Link></li>}
                         {isUserLoggedIn && <li><Link className="nav-link" to="/parts">CZĘŚCI</Link></li>}
                         {isUserLoggedIn && <li><Link className="nav-link" to="/reasons">POWODY USTEREK</Link></li>}

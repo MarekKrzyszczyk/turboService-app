@@ -14,6 +14,7 @@ import ListPartsComponent from "./ListPartsComponent";
 import ListReasonsComponent from "./ListReasonsComponent";
 import PartComponent from "./PartComponent";
 import ReasonComponent from "./ReasonComponent";
+import ListOrdersComponent from "./ListOrdersComponent";
 
 class TurboApp extends Component {
     render() {
@@ -32,6 +33,7 @@ class TurboApp extends Component {
                             <AuthenticationRoute path="/parts" component={ListPartsComponent}/>
                             <AuthenticationRoute path="/reasons/:id" component={ReasonComponent}/>
                             <AuthenticationRoute path="/reasons" component={ListReasonsComponent}/>
+                            <AuthenticationRoute path="/orders" component={ListOrdersComponent}/>
                             <Route path="/contact" component={ContactComponent}/>
                             <AuthenticationRoute path="/logout" component={LogoutComponent}/>
                             <Route component={ErrorComponent}/>
